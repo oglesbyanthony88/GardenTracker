@@ -20,4 +20,20 @@ class Api{
 		let sanitized = {...plantObj.attributes, id: plantObj.id}
 		new Plant(sanitized)
 	}
+
+	static sanitizeAndAddGarden(gardenObj){
+		let sanitized = {...gardenObj.attributes, id: gardenObj.id}
+		new Garden(sanitized)
+	}
+
+	static newGarden(gardenObj){
+		let configObj = {
+			method: "POST",
+			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
+			body: JSON.stringify(gardenObj)
+		}
+		fetch('http://localhost:3000/gardens', configObj)
+		.then(res => res.json())
+		.then(this.sanitizeAndAddGarden)
+	}
 }

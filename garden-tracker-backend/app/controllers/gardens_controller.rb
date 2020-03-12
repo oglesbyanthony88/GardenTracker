@@ -12,6 +12,12 @@ class GardensController < ApplicationController
 		render json: GardenSerializer.new(garden)
 	end
 
+	def create
+		newGarden = Garden.create(garden_params)
+		
+		render json: GardenSerializer.new(newGarden)
+	end
+
 private
 
 	def garden_params
