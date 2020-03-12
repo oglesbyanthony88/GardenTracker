@@ -2,7 +2,7 @@ class Plant{
 
 	static all = []
 
-	constructor(id, plantName, plantType, plantFamily, garden_id){
+	constructor({id, plantName, plantType, plantFamily, garden_id}){
 		this.id = id
 		this.plantName = plantName
 		this.plantType = plantType
