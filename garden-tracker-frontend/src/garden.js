@@ -7,12 +7,10 @@ class Garden{
 		this.title = title
 		this.gardenType = gardenType
 
-		
-	
 		Garden.all.push(this)
 	}
 
-	static loadGarden(gardenObj) {
+	static loadGardens(gardenObj) {
         const plants = gardenObj.relationships.plants.data
         const id = gardenObj.id 
         const { title, gardenType } = gardenObj.attributes

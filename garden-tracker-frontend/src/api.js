@@ -4,6 +4,7 @@ class Api{
 	static fetchGardens(){
 		return fetch('http://localhost:3000/gardens')
 		.then(parseJSON)
+		
 	}
 
 	static fetchPlants(){
@@ -18,10 +19,5 @@ class Api{
 	static sanitizeAndAddPlant(plantObj){
 		let sanitized = {...plantObj.attributes, id: plantObj.id}
 		new Plant(sanitized)
-	}
-
-	static sanitizeAndAddGarden(gardenObj){
-		let sanitized = {...gardenObj.attributes, id: gardenObj.id}
-		new Garden(sanitized)
 	}
 }
