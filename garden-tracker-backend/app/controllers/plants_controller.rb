@@ -1,9 +1,9 @@
 class PlantsController < ApplicationController
 
 	def index
-		plants = Plants.all
+		plants = Plant.all
 
-		render json: PlantsSerializer.new(plants)
+		render json: PlantSerializer.new(plants)
 	end
 
 private
