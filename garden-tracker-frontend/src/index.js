@@ -33,7 +33,8 @@ function handleMenuClick(event){
 
 // connects html span id to functions associated with handleMenuClick
 const callbacks= {
-    allPlants: renderAllPlants
+    allPlants: renderAllPlants,
+    newGarden: renderNewGardenForm
 }
 
 //calls the render function from Plants
@@ -45,3 +46,23 @@ function renderAllPlants(){
 function clearWindow(){
 	document.getElementById("main").innerHTML = ""
 }
+
+// renders a new form for garden
+function renderNewGardenForm(){
+	main.appendChild(gFormDiv)
+}
+// setting up new garden form
+const gFormDiv = document.createElement('div')
+gFormDiv.className = "new-garden"
+	gFormDiv.innerHTML = `
+		<h2>New Garden</h2>
+		Garden Title:
+		<input id="garden" type="text"/>
+		<br><br>
+		Garden Type:
+		<input id="garden" type="text"/>
+		<br>
+		<p>i.e.(Vegetable, Flower, Mixed, etc)</p>
+		<br><br>
+		<span id="garden-submit">Add Garden</span>
+	`

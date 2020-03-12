@@ -1,0 +1,42 @@
+header {
+	background-color: #4fb2aa;
+	margin: 50px auto;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+span {
+	background-color: #4fb2aa;
+  height: 10px;
+  width: 30px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+body {
+	margin-top: 50px;
+
+	background-color: #e8d3a3;
+}
+
+div.garden {
+	padding: 5px;
+	margin-top: 25px;
+  background-color: #ffa633;
+  border-radius: 10px;
+}
+
+div.plant {
+	padding: 5px;
+	margin-top: 25px;
+  background-color: #3b5a9d;
+  border-radius: 10px;
+}
+
+div.new-garden {
+	padding: 10px;
+	margin-top: 25px;
+  background-color: #ffa633;
+  border-radius: 10px;
+}
