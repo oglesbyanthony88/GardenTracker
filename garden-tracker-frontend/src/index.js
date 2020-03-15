@@ -34,7 +34,8 @@ function handleMenuClick(event){
 // connects html span id to functions associated with handleMenuClick
 const callbacks= {
     allPlants: renderAllPlants,
-    newGarden: renderNewGardenForm
+    newGarden: renderNewGardenForm,
+    allGardens: Garden.renderGardens
 }
 
 //calls the render function from Plants
