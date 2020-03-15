@@ -4,7 +4,6 @@ class Api{
 	static fetchGardens(){
 		return fetch('http://localhost:3000/gardens')
 		.then(parseJSON)
-		
 	}
 
 	static fetchPlants(){

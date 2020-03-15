@@ -69,7 +69,7 @@ gFormDiv.className = "new-garden"
 // adds listener for new garden submit button
 gFormDiv.addEventListener('click', handleFormSubmit)
 
-// creates new Garden using
+// creates new Garden using Api.newGarden
 function handleFormSubmit(event){
     if (event.target.id == "garden-submit"){
     	let gardenInput = gFormDiv.querySelectorAll('input#garden')
@@ -78,7 +78,9 @@ function handleFormSubmit(event){
     		title: gardenInput[0].value,
     		gardenType: gardenInput[1].value
     	}
-    	Api.newGarden(newGardenObj);
-    	location.reload();
+    	Api.newGarden(newGardenObj)
+    	clearWindow()
+
+    	//need to reload home screen
     }
   }
