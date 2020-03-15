@@ -35,4 +35,13 @@ class Api{
 		.then(res => res.json())
 		.then(this.sanitizeAndAddGarden)
 	}
+
+	static fetchGardensForReset(){
+		fetch('http://localhost:3000/gardens')
+		.then(res => res.json())
+		.then(resObj => {
+			resObj.data.forEach(this.sanitizeAndAddGarden)
+		})
+	}
+
 }

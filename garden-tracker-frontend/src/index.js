@@ -42,6 +42,10 @@ function renderAllPlants(){
 	Plant.renderPlants()
 }
 
+function renderAllGardens(){
+	Garden.renderGardens()
+}
+
 // clears window to declutter
 function clearWindow(){
 	document.getElementById("main").innerHTML = ""
@@ -79,8 +83,6 @@ function handleFormSubmit(event){
     		gardenType: gardenInput[1].value
     	}
     	Api.newGarden(newGardenObj)
-    	clearWindow()
-
-    	//need to reload home screen
+    	location.reload()
     }
-  }
+}
