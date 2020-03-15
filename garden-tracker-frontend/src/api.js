@@ -44,4 +44,37 @@ class Api{
 		})
 	}
 
+	static newPlant(plantObj){
+		let configObj = {
+			method: "POST",
+			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
+			body: JSON.stringify(plantObj)
+		}
+		fetch('http://localhost:3000/plant', configObj)
+		.then(res => res.json())
+		.then(this.sanitizeAndAddPlant)
+	}
+
+	static createPlantField(e){
+		let targetGardenId = parseInt(e.target.id)
+		let plantField = document.querySelector(`#plant-field-${targetGardenId}`)
+		let gardenPlantsArr = Plant.all.filter(plant => plant.garden_id === targetGardenId)
+		let gardenPlants = ''
+		for (const plant of gardenPlantsArr){
+			gardenPlants += Api.createIndividualPlant(plant)
+		}
+
+		plantField.innerHTML += gardenPlants
+
+	}
+
+	static createIndividualPlant(plant){
+		return `<div class="plant" plant-id="plant.id">
+							<li>${plant.plantName}</li>
+							<li>${plant.plantType}</li>
+						</div>
+							`
+
+	}
+
 }
