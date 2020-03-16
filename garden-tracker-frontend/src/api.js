@@ -44,26 +44,28 @@ class Api{
 		})
 	}
 
-	static newPlant(plantObj){
+	static newPlant(newPlantObj){
 		let configObj = {
 			method: "POST",
 			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
-			body: JSON.stringify(plantObj)
+			body: JSON.stringify(newPlantObj)
 		}
-		fetch('http://localhost:3000/plant', configObj)
+		debugger
+		fetch(`http://localhost:3000/plants`, configObj)
 		.then(res => res.json())
-		.then(this.sanitizeAndAddPlant)
+		.then(this.sanitizeAndAddGarden)
 	}
 
+	
+
 	static createPlantField(e){
-		let targetGardenId = parseInt(e.target.id)
+		let targetGardenId = parseInt(e.target.parentNode.id)
 		let plantField = document.querySelector(`#plant-field-${targetGardenId}`)
 		let gardenPlantsArr = Plant.all.filter(plant => plant.garden_id === targetGardenId)
 		let gardenPlants = ''
 		for (const plant of gardenPlantsArr){
 			gardenPlants += Api.createIndividualPlant(plant)
 		}
-
 		plantField.innerHTML += gardenPlants
 
 	}
@@ -77,4 +79,36 @@ class Api{
 
 	}
 
+	static createNewPlantForm(e){
+		let targetGardenId = parseInt(e.target.parentNode.id)
+		let newPlantField = document.querySelector("#new-plant-form")
+		newPlantField.innerHTML = `
+			<input hidden id="plant" value="${targetGardenId}" />
+			Plant Name:
+			<input id="plant" type="text"/>
+			<br>
+			Plant Type:
+			<input id="plant" type="text"/>
+			<br>
+			Plant Family:
+			<input id="plant" type="text"/>
+			<br>
+			<span id="plant-submit">Submit</span>
+		`
+		let plantSubmit = document.querySelector("#plant-submit")
+		plantSubmit.addEventListener("click", Api.handleNewPlantSubmit)
+	}
+
+	static handleNewPlantSubmit(e){
+		let newPlantField = document.querySelector("#new-plant-form")
+		let plantInput = newPlantField.querySelectorAll("input#plant")
+		let newPlantObj = {
+			garden_id: plantInput[0].value,
+			plantName: plantInput[1].value,
+			plantType: plantInput[2].value,
+			plantFamily: plantInput[3].value
+		}
+		Api.newPlant(newPlantObj)
+		location.reload()
+	}
 }

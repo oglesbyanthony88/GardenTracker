@@ -23,16 +23,20 @@ class Garden{
         Garden.all.forEach(garden => {
             let div = document.createElement("div")
             div.className = "garden"
-            div.id =`garden-${garden.id}`
+            div.id =`${garden.id}`
             div.innerHTML = `
             	<h1>${garden.title}</h1>
             	<p>${garden.gardenType} Garden</p>
-            	<span class="load-plants" id=${garden.id}>View Plants</span>
-            	<div id="plant-field-${garden.id}">
+            	<span id="load-plants">View Plants</span>
+            	<span id="new-plant">Add New Plant</span>
+                <div id="plant-field-${garden.id}">
             	</div>
+                <div id="new-plant-form">
+                </div>
             `
             main.appendChild(div)
-            document.getElementById(`${garden.id}`).addEventListener("click", Api.createPlantField)
+            document.getElementById("load-plants").addEventListener("click", Api.createPlantField)
+            document.getElementById("new-plant").addEventListener("click", Api.createNewPlantForm)
         })
     }
 
