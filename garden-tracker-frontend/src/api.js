@@ -31,9 +31,10 @@ class Api{
 			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
 			body: JSON.stringify(gardenObj)
 		}
-		fetch('http://localhost:3000/gardens', configObj)
+		fetch(`http://localhost:3000/gardens}`, configObj)
 		.then(res => res.json())
 		.then(this.sanitizeAndAddGarden)
+		debugger
 	}
 
 	static fetchGardensForReset(){
@@ -50,10 +51,10 @@ class Api{
 			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
 			body: JSON.stringify(newPlantObj)
 		}
-		debugger
+		
 		fetch(`http://localhost:3000/plants`, configObj)
 		.then(res => res.json())
-		.then(this.sanitizeAndAddGarden)
+		.then(plant => new Plant(plant))
 	}
 	
 }

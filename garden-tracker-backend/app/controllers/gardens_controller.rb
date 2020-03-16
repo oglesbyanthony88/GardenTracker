@@ -7,7 +7,7 @@ class GardensController < ApplicationController
 	end
 
 	def show
-		garden = Garden.find_by(params[:id])
+		garden = Garden.find(params[:id])
 
 		render json: GardenSerializer.new(garden)
 	end

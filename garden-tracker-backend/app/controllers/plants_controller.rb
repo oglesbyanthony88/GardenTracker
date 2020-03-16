@@ -8,10 +8,10 @@ class PlantsController < ApplicationController
 	end
 
 	def create
-		garden = Garden.find_by(params[:id])
-		newPlant = garden.plants.build(plant_params)
+		newPlant = Plant.new(plant_params)
+		
 		newPlant.save
-		render json: PlantSerializer.new(newPlant)
+		render json: PlantSerializer.new(newPlant)	
 	end
 
 private

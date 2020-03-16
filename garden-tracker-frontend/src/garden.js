@@ -27,16 +27,17 @@ class Garden{
             div.innerHTML = `
             	<h1>${garden.title}</h1>
             	<p>${garden.gardenType} Garden</p>
-            	<span id="load-plants">View Plants</span>
-            	<span id="new-plant">Add New Plant</span>
+            	<span id="load-plants-${garden.id}">View Plants</span>
+            	<span id="new-plant-${garden.id}">Add New Plant</span>
                 <div id="plant-field-${garden.id}">
             	</div>
-                <div id="new-plant-form">
+                <div id="new-plant-form-${garden.id}">
                 </div>
             `
             main.appendChild(div)
-            document.getElementById("load-plants").addEventListener("click", createPlantField)
-            document.getElementById("new-plant").addEventListener("click", createNewPlantForm)
+            document.getElementById(`load-plants-${garden.id}`).addEventListener("click", createPlantField)
+            document.getElementById(`new-plant-${garden.id}`).addEventListener("click", createNewPlantForm)
+            
         })
     }
 

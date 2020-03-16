@@ -10,7 +10,7 @@ const menu = document.getElementById('menu')
 document.addEventListener("DOMContentLoaded", () => {
     Api.fetchGardens()
     .then(resObj => {
-        resObj.data.forEach(garden => { 
+        resObj.data.forEach(garden => {
             Garden.loadGardens(garden)
         })
     })
@@ -88,19 +88,24 @@ function handleFormSubmit(event){
     }
 }
 
+
 function clearDivPlantField(){
-    let target = document.querySelector('[id^="plant-field-"]').id
-    document.getElementById(`${target}`).innerHTML = ''
+    let divs = document.querySelectorAll('[id^="plant-field-"]')
+    divs.forEach(function(div){
+        div.innerHTML = ''
+    })   
 }
 
 function clearDivNewPlantForm(){
-    document.getElementById('new-plant-form').innerHTML = ''
+    let divsP = document.querySelectorAll('#new-plant-form')
+    divsP.forEach(function(div){
+        div.innerHTML = ''
+    }) 
 }
 
 // when add plant button pushed in garden card expands list of plants.
 function createPlantField(e){
-        clearDivPlantField()
-        clearDivNewPlantForm()
+        
         let targetGardenId = parseInt(e.target.parentNode.id)
         let plantField = document.querySelector(`#plant-field-${targetGardenId}`)
         let gardenPlantsArr = Plant.all.filter(plant => plant.garden_id === targetGardenId)
@@ -122,8 +127,9 @@ function createIndividualPlant(plant){
 // creates new plant form for new plant button
 function createNewPlantForm(e){
         clearDivPlantField()
+        clearDivNewPlantForm()
         let targetGardenId = parseInt(e.target.parentNode.id)
-        let newPlantField = document.querySelector("#new-plant-form")
+        let newPlantField = document.querySelector(`#new-plant-form-${targetGardenId}`)
         newPlantField.innerHTML = `
             <input hidden id="plant" value="${targetGardenId}" />
             Plant Name:
@@ -135,14 +141,15 @@ function createNewPlantForm(e){
             Plant Family:
             <input id="plant" type="text"/>
             <br>
-            <span id="plant-submit">Submit</span>
+            <span class="plant-submit" id="${targetGardenId}">Submit</span>
         `
-        let plantSubmit = document.querySelector("#plant-submit")
+        let plantSubmit = document.querySelector(`.plant-submit`)
         plantSubmit.addEventListener("click", handleNewPlantSubmit)
 }
 
 function handleNewPlantSubmit(e){
-        let newPlantField = document.querySelector("#new-plant-form")
+        let targetFormId = parseInt(e.target.id)
+        let newPlantField = document.querySelector(`#new-plant-form-${targetFormId}`)
         let plantInput = newPlantField.querySelectorAll("input#plant")
         let newPlantObj = {
             garden_id: plantInput[0].value,
