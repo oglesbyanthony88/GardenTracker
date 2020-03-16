@@ -12,12 +12,6 @@ class Plant{
 		Plant.all.push(this)
 	}
 
-	// static loadPlants(plantObj) {
- //        const id = plantObj.id 
- //        const { plantName, plantType, plantFamily } = plantObj.attributes
- //        return new Plant({plantName, plantType, plantFamily})
- //    }
-
   static renderPlants(){
         Plant.all.forEach(plant => {
             let div = document.createElement("div")

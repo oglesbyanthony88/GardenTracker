@@ -19,7 +19,7 @@ class Garden{
         return new Garden({id, title, gardenType, plants})
     }
 
-  static renderGardens(){
+    static renderGardens(){
         Garden.all.forEach(garden => {
             let div = document.createElement("div")
             div.className = "garden"
@@ -35,8 +35,8 @@ class Garden{
                 </div>
             `
             main.appendChild(div)
-            document.getElementById("load-plants").addEventListener("click", Api.createPlantField)
-            document.getElementById("new-plant").addEventListener("click", Api.createNewPlantForm)
+            document.getElementById("load-plants").addEventListener("click", createPlantField)
+            document.getElementById("new-plant").addEventListener("click", createNewPlantForm)
         })
     }
 
