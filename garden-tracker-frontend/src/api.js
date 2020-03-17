@@ -31,7 +31,7 @@ class Api{
 			headers: {"Content-Type": "application/json", "Accepts": "application/json"},
 			body: JSON.stringify(gardenObj)
 		}
-		fetch(`http://localhost:3000/gardens}`, configObj)
+		fetch(`http://localhost:3000/gardens`, configObj)
 		.then(res => res.json())
 		.then(this.sanitizeAndAddGarden)
 		debugger

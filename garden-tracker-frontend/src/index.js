@@ -40,6 +40,7 @@ const callbacks= {
 
 //calls the render function from Plants
 function renderAllPlants(){
+    console.log('working')
 	Plant.renderPlants()
 }
 
@@ -97,7 +98,7 @@ function clearDivPlantField(){
 }
 
 function clearDivNewPlantForm(){
-    let divsP = document.querySelectorAll('#new-plant-form')
+    let divsP = document.querySelectorAll('[id^="new-plant-form-"]')
     divsP.forEach(function(div){
         div.innerHTML = ''
     }) 
@@ -105,7 +106,8 @@ function clearDivNewPlantForm(){
 
 // when add plant button pushed in garden card expands list of plants.
 function createPlantField(e){
-        
+        clearDivNewPlantForm()
+        clearDivPlantField()
         let targetGardenId = parseInt(e.target.parentNode.id)
         let plantField = document.querySelector(`#plant-field-${targetGardenId}`)
         let gardenPlantsArr = Plant.all.filter(plant => plant.garden_id === targetGardenId)
@@ -124,6 +126,8 @@ function createIndividualPlant(plant){
             </div>
            `
 }
+
+
 // creates new plant form for new plant button
 function createNewPlantForm(e){
         clearDivPlantField()
@@ -160,3 +164,6 @@ function handleNewPlantSubmit(e){
         Api.newPlant(newPlantObj)
         location.reload()
 }
+
+
+// effects

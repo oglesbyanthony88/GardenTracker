@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
 
 	def index
 		plants = Plant.all
-		plants = plants.uniq{|e| [e.plantName]}
+		
 
 		render json: PlantSerializer.new(plants)
 	end

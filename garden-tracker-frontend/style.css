@@ -12,6 +12,11 @@ span {
   width: 30px;
   padding: 5px;
   border-radius: 4px;
+  transition-duration: 0.5s;
+}
+
+span:hover {
+  background-color: #ffbaf9;
 }
 
 body {
@@ -19,18 +24,17 @@ body {
 	background-color: #afbfae;
 }
 
-
 div.garden {
 	padding: 5px;
 	margin-top: 25px;
-  background-color: #ffa633;
+  background-color: #71ad72;
   border-radius: 10px;
 }
 
 div.plant {
 	padding: 5px;
 	margin-top: 25px;
-  background-color: #3b5a9d;
+  background-color: #6467a1;
   border-radius: 10px;
 }
 

@@ -13,6 +13,7 @@ class Plant{
 	}
 
   static renderPlants(){
+    // filter duplicates 
         Plant.all.forEach(plant => {
             let div = document.createElement("div")
             div.className = "plant"
@@ -26,5 +27,4 @@ class Plant{
         })
 
     }
-
 }
