@@ -39,7 +39,7 @@ class Api{
 		fetch(`http://localhost:3000/gardens`, configObj)
 		.then(res => res.json())
 		.then(this.sanitizeAndAddGarden)
-		debugger
+		
 	}
 
 	static fetchGardensForReset(){

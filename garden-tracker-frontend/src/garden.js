@@ -21,7 +21,25 @@ class Garden{
 
 // renders garden cards
     static renderGardens(){
-        Garden.all.forEach(garden => {
+/*
+In order to alphabatize the object array I had to call sort on Garden and stor it in a new variable.
+Sort used an anonymous function to take in two variables in Garden.all
+This function then lowercases the titles of each varible and then compares them.
+If title A comes after title B then title a is moved to the end
+If title A comes before title B then it is moved to the front.
+if neither if statements are true then title A does not move.
+*/ 
+
+        let alphaGarden = Garden.all.sort(function(a ,b){
+            let titleA = a.title.toLowerCase() 
+            let titleB = b.title.toLowerCase()
+                if (titleA < titleB)
+                    return -1
+                if (titleA > titleB)
+                    return 1
+                return 0
+        });
+        alphaGarden.forEach(garden => {
             let div = document.createElement("div")
             div.className = "garden"
             div.id =`${garden.id}`
