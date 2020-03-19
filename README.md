@@ -6,6 +6,13 @@ This is a fully functional Single Page Application (SPA). The frontend was build
 
 Graden Tracker is an SPA ment to track plants in a garden.
 
+**Stretch Goals:**
+- Delete plants
+- Delete gardens
+- Stronger UI
+- Add default photos to Gardens based on garden type. 
+- Add photos to Plants.
+
 ## Installation
 
 Fork and clone repo
