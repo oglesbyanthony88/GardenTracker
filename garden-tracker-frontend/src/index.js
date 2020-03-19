@@ -44,6 +44,7 @@ function renderAllPlants(){
 	Plant.renderPlants()
 }
 
+// calls render garden
 function renderAllGardens(){
 	Garden.renderGardens()
 }
@@ -89,7 +90,7 @@ function handleFormSubmit(event){
     }
 }
 
-
+// clears all div#plant-fields
 function clearDivPlantField(){
     let divs = document.querySelectorAll('[id^="plant-field-"]')
     divs.forEach(function(div){
@@ -97,6 +98,7 @@ function clearDivPlantField(){
     })   
 }
 
+// clears all div#new-plants-forms
 function clearDivNewPlantForm(){
     let divsP = document.querySelectorAll('[id^="new-plant-form-"]')
     divsP.forEach(function(div){
@@ -151,6 +153,7 @@ function createNewPlantForm(e){
         plantSubmit.addEventListener("click", handleNewPlantSubmit)
 }
 
+// Handles what to do when new plant is submited
 function handleNewPlantSubmit(e){
         let targetFormId = parseInt(e.target.id)
         let newPlantField = document.querySelector(`#new-plant-form-${targetFormId}`)
@@ -166,4 +169,3 @@ function handleNewPlantSubmit(e){
 }
 
 
-// effects

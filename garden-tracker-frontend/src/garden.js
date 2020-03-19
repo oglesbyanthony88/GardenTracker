@@ -11,7 +11,7 @@ class Garden{
 	}
 
 
-
+// loads garden for use to render gardens on load
 	static loadGardens(gardenObj) {
         const plants = gardenObj.relationships.plants.data
         const id = gardenObj.id 
@@ -19,6 +19,7 @@ class Garden{
         return new Garden({id, title, gardenType, plants})
     }
 
+// renders garden cards
     static renderGardens(){
         Garden.all.forEach(garden => {
             let div = document.createElement("div")

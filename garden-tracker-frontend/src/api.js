@@ -1,3 +1,8 @@
+
+/* Used an Api class to house all of the fetch requests and sanitizer functions.
+	 This was to consolidate code.
+*/
+
 class Api{
 	static baseURL = 'http://localhost:3000'
 
